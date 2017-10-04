@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import CoreLocation
-import MapKit
 
-class ViewController: UIViewController,CLLocationManagerDelegate {
+
+class ViewController: UIViewController {
 
     
     @IBOutlet weak var totalSumm: UITextField!
@@ -32,60 +31,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var grandTotalField20: UILabel!
     
     @IBOutlet weak var myLocationDisplay: UILabel!
-    
-   
-    
-    
-//         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-//
-//            let location = locations[0]
-    
-//            let myLocation = CLLocation(latitude : location.coordinate.latitude, longitude: location.coordinate.longitude)
-            
-//            CLGeocoder().reverseGeocodeLocation(location)  { (placemarks, error) -> Void in
-//
-//                if error != nil {
-//
-//                    print("fail")
-//                    return
-//                }else{
-//
-//
-//                    if (placemarks?[0]) != nil {
-//
-//                    let pm = placemarks?[0] as CLPlacemark!
-//
-//                    let address = (pm?.subThoroughfare)! + " " + (pm?.thoroughfare)! + "," + (pm?.locality)! + "," +
-//                        (pm?.administrativeArea)! + " " + (pm?.postalCode)! + " " + (pm?.isoCountryCode)!
-//
-//
-//
-//                        if (pm?.subThoroughfare) != nil{
-//                   print(address)
-//                        self.myLocationDisplay.text! = address
-//                    }
-//                }else{
-//
-//                    print("Error")
-//                }
-//
-//            }
-//            }
-//    }
-    
-    
-    
-//    let manager = CLLocationManager()
-//
-//    override func viewDidLoad(){
-//
-//        super.viewDidLoad()
-//        manager.delegate = self
-//        manager.desiredAccuracy = kCLLocationAccuracyBest
-//        manager.requestWhenInUseAuthorization()
-//        manager.startUpdatingLocation()
-//
-//    }
+
    
     @IBAction func calculateTips(_ sender: UIButton) {
         
