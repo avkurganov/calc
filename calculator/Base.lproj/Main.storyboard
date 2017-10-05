@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" red="0.93610346502590669" green="0.93610346502590669" blue="0.93610346502590669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqf-Gw-47V">
                                 <rect key="frame" x="23" y="74" width="131" height="35"/>
@@ -219,8 +219,6 @@
         <!--Discount Calculator-->
         <scene sceneID="yle-OP-dQ8">
             <objects>
-                <exit id="Wzv-Q3-4UH" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rxX-T1-hlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Discount Calculator" id="jxb-P1-tsg" customClass="DiscountViewController" customModule="calculator" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T49-A2-yn1"/>
@@ -243,7 +241,7 @@
                                 <color key="backgroundColor" red="0.92717778500000003" green="0.92717778500000003" blue="0.92717778500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Discount: %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2L-Pj-83v">
                                 <rect key="frame" x="33" y="148" width="186" height="24"/>
@@ -286,14 +284,14 @@
                                 <color key="backgroundColor" red="0.92717778500000003" green="0.92717778500000003" blue="0.92717778500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eSM-CP-37Y">
                                 <rect key="frame" x="267" y="110" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax: $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt1-If-vj6">
                                 <rect key="frame" x="33" y="267" width="69" height="24"/>
@@ -337,18 +335,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCq-aO-Luv">
+                                <rect key="frame" x="33" y="589" width="349" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <outlet property="amountOfDiscount" destination="lyw-GJ-mAN" id="jWp-VY-RSy"/>
                         <outlet property="itemPrice" destination="3l6-Kb-zLd" id="3Q0-6z-Zjj"/>
+                        <outlet property="myLocationDisplay" destination="XCq-aO-Luv" id="A7g-A9-bMG"/>
                         <outlet property="priceAfterDiscount" destination="7Aq-Sf-CeL" id="LWH-q0-Hjd"/>
                         <outlet property="saleTax" destination="eSM-CP-37Y" id="T4f-01-sCr"/>
                         <outlet property="saleTaxField" destination="3CA-Nb-Ewa" id="QOi-XZ-qNv"/>
                         <outlet property="total" destination="1qp-80-Iyg" id="2Gz-Bc-bED"/>
                     </connections>
                 </viewController>
+                <exit id="Wzv-Q3-4UH" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxX-T1-hlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031.8840579710145" y="23.64130434782609"/>
         </scene>

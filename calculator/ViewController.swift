@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var totalSumm: UITextField!
@@ -31,6 +31,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var grandTotalField20: UILabel!
     
     @IBOutlet weak var myLocationDisplay: UILabel!
+    
+    @objc(textField:shouldChangeCharactersInRange:replacementString:) func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("Validating ...")
+        let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.totalSumm.delegate = self
+    }
 
    
     @IBAction func calculateTips(_ sender: UIButton) {

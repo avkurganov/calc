@@ -25,6 +25,8 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var total: UITextField!
     
+    @IBOutlet weak var myLocationDisplay: UILabel!
+    
     @IBAction func calculate(_ sender: Any) {
         
         let tax = Double(saleTax!.text!)
@@ -46,56 +48,61 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    //         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-    //
-    //            let location = locations[0]
+             func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
     
-    //            let myLocation = CLLocation(latitude : location.coordinate.latitude, longitude: location.coordinate.longitude)
+                let location = locations[0]
     
-    //            CLGeocoder().reverseGeocodeLocation(location)  { (placemarks, error) -> Void in
-    //
-    //                if error != nil {
-    //
-    //                    print("fail")
-    //                    return
-    //                }else{
-    //
-    //
-    //                    if (placemarks?[0]) != nil {
-    //
-    //                    let pm = placemarks?[0] as CLPlacemark!
-    //
-    //                    let address = (pm?.subThoroughfare)! + " " + (pm?.thoroughfare)! + "," + (pm?.locality)! + "," +
-    //                        (pm?.administrativeArea)! + " " + (pm?.postalCode)! + " " + (pm?.isoCountryCode)!
-    //
-    //
-    //
-    //                        if (pm?.subThoroughfare) != nil{
-    //                   print(address)
-    //                        self.myLocationDisplay.text! = address
-    //                    }
-    //                }else{
-    //
-    //                    print("Error")
-    //                }
-    //
-    //            }
-    //            }
-    //    }
+//                let myLocation = CLLocation(latitude : location.coordinate.latitude, longitude: location.coordinate.longitude)
+    
+                CLGeocoder().reverseGeocodeLocation(location)  { (placemarks, error) -> Void in
+    
+                    if error != nil {
+    
+                        print("fail")
+                        return
+                    }else{
+    
+                        print(placemarks![0].thoroughfare!)
+                        
+                        if (placemarks?[0]) != nil {
+    
+                        let pm = placemarks?[0] as CLPlacemark!
+    
+                        let address = (pm?.subThoroughfare)! + " " + (pm?.thoroughfare)! + "," + (pm?.locality)! + "," +
+                            (pm?.administrativeArea)! + " " + (pm?.postalCode)! + " " + (pm?.isoCountryCode)!
     
     
     
-    //    let manager = CLLocationManager()
-    //
-    //    override func viewDidLoad(){
-    //
-    //        super.viewDidLoad()
-    //        manager.delegate = self
-    //        manager.desiredAccuracy = kCLLocationAccuracyBest
-    //        manager.requestWhenInUseAuthorization()
-    //        manager.startUpdatingLocation()
-    //
-    //    }
+                            if (pm?.subThoroughfare) != nil{
+                                
+                       print(address)
+                                
+                            self.myLocationDisplay.text! = address
+                                
+                        }
+                            
+                    }else{
+    
+                        print("Error")
+                    }
+    
+                }
+                }
+        }
+    
+    
+    
+        let manager = CLLocationManager()
+    
+        override func viewDidLoad(){
+    
+            super.viewDidLoad()
+            manager.delegate = self
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.requestWhenInUseAuthorization()
+            manager.startUpdatingLocation()
+    
+        }
     
 
     /*
