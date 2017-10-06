@@ -168,16 +168,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9My-DF-4Wv">
-                                <rect key="frame" x="199" y="500" width="188" height="36"/>
+                                <rect key="frame" x="190" y="390" width="188" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Discount Calculator &gt;"/>
+                                <state key="normal" title="Discount Calculator &gt;">
+                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="jxb-P1-tsg" kind="show" id="PLk-5M-AAW"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.74712438456758434" green="0.40893439113854346" blue="0.82975051804166666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Tips Calculator" id="N9U-Ic-WHa"/>
@@ -343,7 +345,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="amountOfDiscount" destination="lyw-GJ-mAN" id="jWp-VY-RSy"/>
