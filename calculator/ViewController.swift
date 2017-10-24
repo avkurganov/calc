@@ -36,6 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print("Validating ...")
         let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
         let characterSet = CharacterSet(charactersIn: string)
+        
         return allowedCharacters.isSuperset(of: characterSet)
         
     }
