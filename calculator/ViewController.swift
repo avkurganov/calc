@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
           print(prospectiveText)
         
         if (prospectiveText.isEmpty) || prospectiveText == "0"{
-          
+            calculateTips(total: Double("0")!)
         }else{
            
             calculateTips(total: Double(prospectiveText)!)
