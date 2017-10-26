@@ -30,39 +30,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var grandTotalField20: UILabel!
     
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        calculateTips(total: Double("0")!)
+        return true
+    }
     
    func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         print("Validating ...")
+    
     let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
-        let characterSet = CharacterSet(charactersIn: string)
-    
-    let prospectiveText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-    
-          print(prospectiveText)
+    let characterSet = CharacterSet(charactersIn: string)
         
-        if (prospectiveText.isEmpty) || prospectiveText == "0"{
+    let pass = allowedCharacters.isSuperset(of: characterSet)
+   
+    if pass {
+        
+        let prospectiveText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        print(prospectiveText)
+        
+        if (prospectiveText.isEmpty) || prospectiveText == "0" || Double(prospectiveText) == nil{
+            
             calculateTips(total: Double("0")!)
+      
         }else{
-           
+            
             calculateTips(total: Double(prospectiveText)!)
         }
-        return allowedCharacters.isSuperset(of: characterSet)
-   
     }
-    
-    
+   
+   return pass
+}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         totalSumm.delegate = self
-       
     }
 
-   
-   
     func calculateTips(total: Double) {
-        
-//        let total = Double(totalSumm!.text!)
         
         let tip10 = total * 0.10
         let tip15 = total * 0.15

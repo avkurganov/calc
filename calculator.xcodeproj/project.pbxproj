@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5908C59F1F8743FE00BD4AA9 /* set 1 in Resources */ = {isa = PBXBuildFile; fileRef = 5908C59E1F8743FE00BD4AA9 /* set 1 */; };
 		5908C5A51F8748F300BD4AA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5908C5A41F8748F300BD4AA9 /* Images.xcassets */; };
 		59B0767F1F848E2C0057070A /* DiscountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0767E1F848E2B0057070A /* DiscountViewController.swift */; };
 		59D69DB81F7458950033C431 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D69DB71F7458950033C431 /* CoreLocation.framework */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5908C59E1F8743FE00BD4AA9 /* set 1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "set 1"; path = "../../../Downloads/FreeStuffIos/Image Assets/icons/set 1"; sourceTree = "<group>"; };
 		5908C5A41F8748F300BD4AA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		59B0767E1F848E2B0057070A /* DiscountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountViewController.swift; sourceTree = "<group>"; };
 		59D69DB71F7458950033C431 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				59B0767E1F848E2B0057070A /* DiscountViewController.swift */,
-				5908C59E1F8743FE00BD4AA9 /* set 1 */,
 				59E9CD681F72BC2A00A4E181 /* AppDelegate.swift */,
 				59E9CD6A1F72BC2A00A4E181 /* ViewController.swift */,
 				59E9CD6C1F72BC2A00A4E181 /* Main.storyboard */,
@@ -142,7 +139,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5908C59F1F8743FE00BD4AA9 /* set 1 in Resources */,
 				5908C5A51F8748F300BD4AA9 /* Images.xcassets in Resources */,
 				59E9CD731F72BC2A00A4E181 /* LaunchScreen.storyboard in Resources */,
 				59E9CD6E1F72BC2A00A4E181 /* Main.storyboard in Resources */,
