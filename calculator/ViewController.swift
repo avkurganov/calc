@@ -30,36 +30,49 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var grandTotalField20: UILabel!
     
-    @IBOutlet weak var myLocationDisplay: UILabel!
     
-    @objc(textField:shouldChangeCharactersInRange:replacementString:) func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+   func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         print("Validating ...")
-        let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
+    let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
         let characterSet = CharacterSet(charactersIn: string)
+    
+    let prospectiveText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+    
+          print(prospectiveText)
         
+        if (prospectiveText.isEmpty) || prospectiveText == "0"{
+          
+        }else{
+           
+            calculateTips(total: Double(prospectiveText)!)
+        }
         return allowedCharacters.isSuperset(of: characterSet)
-        
+   
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.totalSumm.delegate = self
+        totalSumm.delegate = self
+       
     }
 
    
-    @IBAction func calculateTips(_ sender: UIButton) {
+   
+    func calculateTips(total: Double) {
         
-        let total = Double(totalSumm!.text!)
+//        let total = Double(totalSumm!.text!)
         
-        let tip10 = total! * 0.10
-        let tip15 = total! * 0.15
-        let tip18 = total! * 0.18
-        let tip20 = total! * 0.20
+        let tip10 = total * 0.10
+        let tip15 = total * 0.15
+        let tip18 = total * 0.18
+        let tip20 = total * 0.20
         
-        let grandTotal10 = total! + tip10
-        let grandTotal15 = total! + tip15
-        let grandTotal18 = total! + tip18
-        let grandTotal20 = total! + tip20
+        let grandTotal10 = total + tip10
+        let grandTotal15 = total + tip15
+        let grandTotal18 = total + tip18
+        let grandTotal20 = total + tip20
         
         result.text! = String(format: "%.2f",tip10)
         result15.text! = String(format: "%.2f",tip15)
