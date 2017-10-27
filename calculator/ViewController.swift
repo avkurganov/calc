@@ -38,15 +38,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
    func textField(_ textField:UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         print("Validating ...")
     
-    let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
-    let characterSet = CharacterSet(charactersIn: string)
+    let prospectiveText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+    
+    var pass = true
+    
+    if let regex = try? NSRegularExpression(pattern: "^[0-9]*((\\.|,)[0-9]{0,2})?$", options: .caseInsensitive) {
+        pass = regex.numberOfMatches(in: prospectiveText, options: .reportProgress, range: NSRange(location: 0, length: (prospectiveText as NSString).length)) > 0
         
-    let pass = allowedCharacters.isSuperset(of: characterSet)
-   
+    }
+    
     if pass {
-        
-        let prospectiveText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        print(prospectiveText)
         
         if (prospectiveText.isEmpty) || prospectiveText == "0" || Double(prospectiveText) == nil{
             
