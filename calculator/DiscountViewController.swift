@@ -6,11 +6,10 @@
 //  Copyright © 2017 Andrey Kurganov. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 import CoreLocation
-import MapKit
 
-class DiscountViewController: UIViewController, CLLocationManagerDelegate {
+class DiscountViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
     
     @IBOutlet weak var itemPrice: UITextField!
@@ -27,12 +26,18 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var myLocationDisplay: UILabel!
     
-    @IBAction func calculate(_ sender: Any) {
+    @IBAction func calculate(_ sender: Any)  {
         
-        let tax = Double(saleTax!.text!)
+        Api().getSaleTax(zipCode: Int(myLocationDisplay.text!)!) {
+        (saleTaxResp) in
+            self.saleTax.text! = "\(saleTaxResp.totalRate * 100)"
         
-        let price = Double(itemPrice!.text!)
-        let discount = Double(amountOfDiscount!.text!)!/100 * price!
+        
+            let tax = Double(self.saleTax!.text!)
+        
+            let price = Double(self.itemPrice!.text!)
+        
+            let discount = Double(self.amountOfDiscount!.text!)!/100 * price!
         
         let priceWithDiscount = price! - discount
         
@@ -40,58 +45,38 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate {
         
         let finalPrice = priceWithDiscount + saleTaxCalc
         
-        priceAfterDiscount.text! = String(format: "%.2f", priceWithDiscount)
+            self.priceAfterDiscount.text! = String(format: "%.2f", priceWithDiscount)
         
-        saleTaxField.text! = String(format: "%.2f",saleTaxCalc)
+            self.saleTaxField.text! = String(format: "%.2f",saleTaxCalc)
         
-        total.text! = String(format: "%.2f",finalPrice)
-        
+            self.total.text! = String(format: "%.2f",finalPrice)
+        }
     }
     
              func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
     
                 let location = locations[0]
-    
-//                let myLocation = CLLocation(latitude : location.coordinate.latitude, longitude: location.coordinate.longitude)
-    
-                CLGeocoder().reverseGeocodeLocation(location)  { (placemarks, error) -> Void in
-    
-                    if error != nil {
-    
-                        print("fail")
-                        return
-                    }else{
-    
-                        print(placemarks![0].thoroughfare!)
-                        
-                        if (placemarks?[0]) != nil {
-    
-                        let pm = placemarks?[0] as CLPlacemark!
-    
-                        let address = (pm?.subThoroughfare)! + " " + (pm?.thoroughfare)! + "," + (pm?.locality)! + "," +
-                            (pm?.administrativeArea)! + " " + (pm?.postalCode)! + " " + (pm?.isoCountryCode)!
-    
-    
-    
-                            if (pm?.subThoroughfare) != nil{
-                                
-                       print(address)
-                                
-                            self.myLocationDisplay.text! = address
-                                
+        
+                CLGeocoder().reverseGeocodeLocation(location, completionHandler: { [self](placemarks, error) -> Void in
+
+                        if error != nil {
+                            print("Reverse geocoder failed with error" + error!.localizedDescription)
+                            return
                         }
+
+                        if placemarks!.count > 0 {
                             
-                    }else{
-    
-                        print("Error")
-                    }
-    
-                }
-                }
+                            let zip = placemarks![0].postalCode!
+
+                            print(zip) //prints zip code
+                            myLocationDisplay.text? = zip
+                        }
+                        else {
+                           print("Problem with the data received from geocoder")
+                        }
+                    })
         }
-    
-    
-    
+
         let manager = CLLocationManager()
     
         override func viewDidLoad(){
@@ -103,6 +88,11 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate {
             manager.startUpdatingLocation()
     
         }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
     
 
     /*
