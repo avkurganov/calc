@@ -11,10 +11,10 @@ import CoreLocation
 
 class DiscountViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var myPrice: UITextField!
     
-    @IBOutlet weak var itemPrice: UITextField!
     
-    @IBOutlet weak var amountOfDiscount: UITextField!
+    @IBOutlet weak var currentDiscount: UITextField!
     
     @IBOutlet weak var priceAfterDiscount: UITextField!
     
@@ -32,12 +32,11 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate, UITex
         (saleTaxResp) in
             self.saleTax.text! = "\(saleTaxResp.totalRate * 100)"
         
-        
             let tax = Double(self.saleTax!.text!)
         
-            let price = Double(self.itemPrice!.text!)
+            let price = Double(self.myPrice!.text!)
         
-            let discount = Double(self.amountOfDiscount!.text!)!/100 * price!
+            let discount = Double(self.currentDiscount!.text!)!/100 * price!
         
         let priceWithDiscount = price! - discount
         

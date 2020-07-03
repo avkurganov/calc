@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "59E9CD641F72BC2A00A4E181"
-               BuildableName = "calculator.app"
-               BlueprintName = "calculator"
-               ReferencedContainer = "container:calculator.xcodeproj">
+               BuildableName = "simpletipsanddiscountcalculator.app"
+               BlueprintName = "simpletipsanddiscountcalculator"
+               ReferencedContainer = "container:simpletipsanddiscountcalculator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "59E9CD641F72BC2A00A4E181"
-            BuildableName = "calculator.app"
-            BlueprintName = "calculator"
-            ReferencedContainer = "container:calculator.xcodeproj">
+            BuildableName = "simpletipsanddiscountcalculator.app"
+            BlueprintName = "simpletipsanddiscountcalculator"
+            ReferencedContainer = "container:simpletipsanddiscountcalculator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "59E9CD641F72BC2A00A4E181"
-            BuildableName = "calculator.app"
-            BlueprintName = "calculator"
-            ReferencedContainer = "container:calculator.xcodeproj">
+            BuildableName = "simpletipsanddiscountcalculator.app"
+            BlueprintName = "simpletipsanddiscountcalculator"
+            ReferencedContainer = "container:simpletipsanddiscountcalculator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
