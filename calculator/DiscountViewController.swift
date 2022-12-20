@@ -32,7 +32,6 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate, UITex
         (saleTaxResp) in
             self.saleTax.text! = "\(saleTaxResp.totalRate * 100)"
         
-        
             let tax = Double(self.saleTax!.text!)
         
             let price = Double(self.itemPrice!.text!)
@@ -69,22 +68,23 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate, UITex
                             let zip = placemarks![0].postalCode!
 
                             print(zip) //prints zip code
-                            myLocationDisplay.text? = zip
+                            self.myLocationDisplay.text? = zip
                         }
                         else {
                            print("Problem with the data received from geocoder")
                         }
                     })
         }
-
-        let manager = CLLocationManager()
+    var manager: CLLocationManager!
     
         override func viewDidLoad(){
     
             super.viewDidLoad()
+            manager = CLLocationManager()
             manager.delegate = self
             manager.desiredAccuracy = kCLLocationAccuracyBest
             manager.requestWhenInUseAuthorization()
+            manager.distanceFilter = 5.0
             manager.startUpdatingLocation()
     
         }
@@ -94,15 +94,12 @@ class DiscountViewController: UIViewController, CLLocationManagerDelegate, UITex
         super.touchesBegan(touches, with: event)
     }
     
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+struct DiscountViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
-    */
-
 }

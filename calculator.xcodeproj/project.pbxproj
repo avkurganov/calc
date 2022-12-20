@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5908C5A51F8748F300BD4AA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5908C5A41F8748F300BD4AA9 /* Images.xcassets */; };
+		59338EBE24AEFE5C00D225B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59338EBD24AEFE5C00D225B0 /* Assets.xcassets */; };
 		59B0767F1F848E2C0057070A /* DiscountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B0767E1F848E2B0057070A /* DiscountViewController.swift */; };
 		59D69DB81F7458950033C431 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D69DB71F7458950033C431 /* CoreLocation.framework */; };
-		59E5C9AE24AD72140000DA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E5C9AD24AD72140000DA03 /* Assets.xcassets */; };
 		59E5C9B124AD9AC60000DA03 /* ApiRequesrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5C9AF24AD9AC60000DA03 /* ApiRequesrs.swift */; };
 		59E5C9B224AD9AC60000DA03 /* ResponseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5C9B024AD9AC60000DA03 /* ResponseObjects.swift */; };
 		59E9CD691F72BC2A00A4E181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E9CD681F72BC2A00A4E181 /* AppDelegate.swift */; };
@@ -20,10 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5908C5A41F8748F300BD4AA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		59338EBD24AEFE5C00D225B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59B0767E1F848E2B0057070A /* DiscountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountViewController.swift; sourceTree = "<group>"; };
 		59D69DB71F7458950033C431 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		59E5C9AD24AD72140000DA03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../BackUp/calc/calculator/Assets.xcassets; sourceTree = "<group>"; };
 		59E5C9AF24AD9AC60000DA03 /* ApiRequesrs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequesrs.swift; sourceTree = "<group>"; };
 		59E5C9B024AD9AC60000DA03 /* ResponseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjects.swift; sourceTree = "<group>"; };
 		59E9CD651F72BC2A00A4E181 /* calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,16 +72,15 @@
 		59E9CD671F72BC2A00A4E181 /* calculator */ = {
 			isa = PBXGroup;
 			children = (
+				59338EBD24AEFE5C00D225B0 /* Assets.xcassets */,
 				59E5C9AF24AD9AC60000DA03 /* ApiRequesrs.swift */,
 				59E5C9B024AD9AC60000DA03 /* ResponseObjects.swift */,
-				59E5C9AD24AD72140000DA03 /* Assets.xcassets */,
 				59B0767E1F848E2B0057070A /* DiscountViewController.swift */,
 				59E9CD681F72BC2A00A4E181 /* AppDelegate.swift */,
 				59E9CD6A1F72BC2A00A4E181 /* ViewController.swift */,
 				59E9CD6C1F72BC2A00A4E181 /* Main.storyboard */,
 				59E9CD711F72BC2A00A4E181 /* LaunchScreen.storyboard */,
 				59E9CD741F72BC2A00A4E181 /* Info.plist */,
-				5908C5A41F8748F300BD4AA9 /* Images.xcassets */,
 			);
 			path = calculator;
 			sourceTree = "<group>";
@@ -126,7 +123,7 @@
 				};
 			};
 			buildConfigurationList = 59E9CD601F72BC2A00A4E181 /* Build configuration list for PBXProject "calculator" */;
-			compatibilityVersion = "Xcode 11.4";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -148,9 +145,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5908C5A51F8748F300BD4AA9 /* Images.xcassets in Resources */,
 				59E9CD731F72BC2A00A4E181 /* LaunchScreen.storyboard in Resources */,
-				59E5C9AE24AD72140000DA03 /* Assets.xcassets in Resources */,
+				59338EBE24AEFE5C00D225B0 /* Assets.xcassets in Resources */,
 				59E9CD6E1F72BC2A00A4E181 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,7 +240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -300,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -314,8 +310,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = BGC6KYL5F4;
 				INFOPLIST_FILE = calculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,8 +330,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = BGC6KYL5F4;
 				INFOPLIST_FILE = calculator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

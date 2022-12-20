@@ -39,15 +39,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var totalCustomSummary: UILabel!
     
     @IBAction func sliderDidValue(_ sender: UISlider) {
+        customTipTextField.isEnabled = true
         customTipTextField.text! = "\(Int(sender.value))"
-        calculateCustomTips(total: Double(totalSumm.text!)!)
+        calculateCustomTips(total: Double(totalSumm.text!)!, splitOn: splitLabel.text!)
+        calculateTips(total: Double(totalSumm.text!)!, splitOn: splitLabel.text!)
     }
 
+    @IBOutlet weak var splitLabel: UILabel!
+    
+    @IBOutlet weak var sliderCustomSplit: UIStepper!
+    
+    @IBAction func splitStepper(_ sender: UIStepper) {
+        splitLabel.text = "\(Int(sender.value))"
+        print( customTipTextField.isEnabled)
+        if customTipTextField.isEnabled{
+        calculateCustomTips(total: Double(totalSumm.text!)!, splitOn: splitLabel.text!)
+        }
+        calculateTips(total: Double(totalSumm.text!)!, splitOn: splitLabel.text!)
+        
+    }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        calculateTips(total: Double("0.00")!)
+        calculateTips(total: Double("0.00")!, splitOn: splitLabel.text!)
         sliderCustomTip.isEnabled = false
         sliderCustomTip.isSelected = false
+        sliderCustomSplit.isEnabled = false
+        
         return true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,14 +89,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if prospectiveText.isEmpty || prospectiveText == "0.0" || Double(prospectiveText) == nil
             || prospectiveText == "0"{
             
-            calculateTips(total: Double("0.00")!)
+            calculateTips(total: Double("0.00")!, splitOn: splitLabel.text!)
             sliderCustomTip.isEnabled = false
             sliderCustomTip.isSelected = false
+            splitLabel.isEnabled = false
+            customTipTextField.isEnabled = false
+            sliderCustomSplit.isEnabled = false
       
         }else{
+            splitLabel.isEnabled = true
             sliderCustomTip.isEnabled = true
             sliderCustomTip.isSelected = true
-            calculateTips(total: Double(prospectiveText)!)
+            sliderCustomSplit.isEnabled = true
+            calculateTips(total: Double(prospectiveText)!, splitOn: splitLabel.text!)
         }
     }
    
@@ -89,29 +111,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         totalSumm.delegate = self
+        customTipTextField.isEnabled = false
     }
     
-    func calculateCustomTips(total: Double) {
-        print("total calculateCustomTips")
-        var tipCustom: Double
+    func calculateCustomTips(total: Double, splitOn: String) {
+        if customTipTextField.isEnabled{
+            print("total calculateCustomTips")
+            var tipCustom: Double
+            
+            if customTipTextField.text! == "" {
+                 tipCustom = 5
+            }else{
+             
+                tipCustom = Double(customTipTextField.text!)!
+                
+            }
         
-        if customTipTextField.text! == "" {
-             tipCustom = 10
-        }else{
-            tipCustom = Double(customTipTextField.text!)!
+            
+            print("tipCustom \(customTipTextField.text!)")
+            let grandTotalCustom = total * Double(tipCustom) / 100
+            let totalCustomSummaryValue = grandTotalCustom + total
+            
+            customTipTextField.text! = "\(tipCustom)"
+            grandTotalCustomField.text! =  String(format: "%.2f",grandTotalCustom)
+            totalCustomSummary.text! = String(format: "%.2f",totalCustomSummaryValue/Double(splitOn)!)
         }
-        
-        print("tipCustom \(customTipTextField.text!)")
-        let grandTotalCustom = total * Double(tipCustom) / 100
-        let totalCustomSummaryValue = grandTotalCustom + total
-        
-        customTipTextField.text! = "\(tipCustom)"
-        grandTotalCustomField.text! =  String(format: "%.2f",grandTotalCustom)
-        totalCustomSummary.text! = String(format: "%.2f",totalCustomSummaryValue)
-        
     }
 
-    func calculateTips(total: Double) {
+    func calculateTips(total: Double, splitOn: String) {
         
         let tip10 = total * 0.10
         let tip15 = total * 0.15
@@ -128,10 +155,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         result18.text! = String(format: "%.2f",tip18)
         result20.text! = String(format: "%.2f",tip20)
         
-        grandTotalField.text! = String(format: "%.2f",grandTotal10)
-        grandTotalField15.text! = String(format: "%.2f",grandTotal15)
-        grandTotalField18.text! = String(format: "%.2f",grandTotal18)
-        grandTotalField20.text! = String(format: "%.2f",grandTotal20)
+        grandTotalField.text! = String(format: "%.2f",grandTotal10/Double(splitOn)!)
+        grandTotalField15.text! = String(format: "%.2f",grandTotal15/Double(splitOn)!)
+        grandTotalField18.text! = String(format: "%.2f",grandTotal18/Double(splitOn)!)
+        grandTotalField20.text! = String(format: "%.2f",grandTotal20/Double(splitOn)!)
        
        
     }
